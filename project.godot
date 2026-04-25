@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://Scripts/Core/signal_bus.gd"
 GameState="*res://Scripts/Core/game_state.gd"
+ShopManager="*res://Scripts/Core/shop_manager.gd"
 AchievementManager="*res://Scripts/Core/achievement_manager.gd"
 AudioPlayer="*res://Scripts/Core/audio_player.gd"
 ConfigurationManager="*res://Scripts/Core/configuration_manager.gd"
