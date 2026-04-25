@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b6x85lit0stwv"]
 
-[ext_resource type="Texture2D" uid="uid://cs4awpexdh3bw" path="res://Assets/Art/parallax_background/empty_space.png" id="1_4ghvd"]
-[ext_resource type="Texture2D" uid="uid://5f0e2klqj5s5" path="res://Assets/Art/parallax_background/stars.png" id="2_xvnf2"]
-[ext_resource type="Texture2D" uid="uid://b2k1hv7mtxyav" path="res://Assets/Art/parallax_background/background_planets.png" id="3_40fxc"]
+[ext_resource type="Texture2D" uid="uid://mhnslte6bw52" path="res://Assets/Art/parallax_background/empty_space_new.png" id="1_xvnf2"]
+[ext_resource type="Texture2D" uid="uid://cn2n4r1tu3opt" path="res://Assets/Art/parallax_background/stars_new.png" id="2_40fxc"]
+[ext_resource type="Texture2D" uid="uid://eajbfponj7or" path="res://Assets/Art/parallax_background/background_planets_new.png" id="3_on0gn"]
 
 [node name="SpaceBackground" type="Node2D" unique_id=601757368]
 
@@ -11,7 +11,7 @@ repeat_size = Vector2(640, 360)
 
 [node name="Sprite2D" type="Sprite2D" parent="EmptySpace" unique_id=929402035]
 position = Vector2(320, 180)
-texture = ExtResource("1_4ghvd")
+texture = ExtResource("1_xvnf2")
 
 [node name="Stars" type="Parallax2D" parent="." unique_id=1826549694]
 scroll_scale = Vector2(0.3, 0.3)
@@ -19,7 +19,7 @@ repeat_size = Vector2(640, 360)
 
 [node name="Sprite2D" type="Sprite2D" parent="Stars" unique_id=518600185]
 position = Vector2(320, 180)
-texture = ExtResource("2_xvnf2")
+texture = ExtResource("2_40fxc")
 
 [node name="BackgroundPlanets" type="Parallax2D" parent="." unique_id=1599246690]
 scroll_scale = Vector2(0.7, 0.7)
@@ -27,4 +27,4 @@ repeat_size = Vector2(640, 360)
 
 [node name="Sprite2D" type="Sprite2D" parent="BackgroundPlanets" unique_id=1646014236]
 position = Vector2(320, 180)
-texture = ExtResource("3_40fxc")
+texture = ExtResource("3_on0gn")

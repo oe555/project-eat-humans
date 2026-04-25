@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://5x7etmqtmvk4"]
 
 [ext_resource type="Script" uid="uid://by00mxo5iri7g" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://ds8d5kt258ric" path="res://Assets/Art/placeholderspaceship.png" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://by8h63qhbq34k" path="res://Assets/Art/spaceship.png" id="2_cvnsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(32, 32)
@@ -13,7 +13,9 @@ script = ExtResource("1_cvnsp")
 shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1762180537]
-texture = ExtResource("1_v0iea")
+position = Vector2(0, -2)
+texture = ExtResource("2_cvnsp")
+flip_v = true
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=1042666587]
 position_smoothing_enabled = true
