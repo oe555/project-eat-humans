@@ -1,0 +1,61 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Project Eat Humans"
+run/main_scene="uid://cxl85jq6fac5x"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+AchievementManager="*res://Scripts/Core/achievement_manager.gd"
+AudioPlayer="*res://Scripts/Core/audio_player.gd"
+ConfigurationManager="*res://Scripts/Core/configuration_manager.gd"
+Enums="*res://Scripts/Core/enums.gd"
+LocalizationManager="*res://Scripts/Core/localization_manager.gd"
+Randomizer="*res://Scripts/Core/randomizer.gd"
+SaveManager="*res://Scripts/Core/save_manager.gd"
+SceneManager="*res://Scripts/Core/scene_manager.gd"
+SignalBus="*res://Scripts/Core/signal_bus.gd"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/subwindows/embed_subwindows=false
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "pink",
+"res://Gemini/": "blue",
+"res://Resources/": "yellow",
+"res://Scenes/": "teal",
+"res://Scripts/": "purple"
+}
+
+[physics]
+
+common/physics_ticks_per_second=120
+3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
