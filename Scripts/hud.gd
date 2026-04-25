@@ -1,7 +1,9 @@
 extends CanvasLayer
 
-@onready var speed_bar: ProgressBar = $SpeedGauge/SpeedBar
-@onready var speed_label: Label = $SpeedGauge/SpeedLabel
+@onready var speed_bar: ProgressBar = $Gauges/SpeedGauge/SpeedBar
+@onready var speed_label: Label = $Gauges/SpeedGauge/SpeedLabel
+@onready var fuel_bar: ProgressBar = $Gauges/FuelGauge/FuelBar
+@onready var fuel_label: Label = $Gauges/FuelGauge/FuelLabel
 
 var player: CharacterBody2D
 
@@ -13,6 +15,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if player:
 		var speed := player.velocity.length()
-		var max_speed: float = player.thrust_max
-		speed_bar.value = (speed / max_speed) * 100.0
+		speed_bar.value = (speed / player.thrust_max) * 100.0
 		speed_label.text = "SPD %d" % int(speed)
+
+		fuel_bar.value = (player.fuel / player.fuel_max) * 100.0
+		fuel_label.text = "FUEL %.1f" % player.fuel
