@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ujr45jajx4e7"]
+[gd_scene load_steps=5 format=3 uid="uid://ujr45jajx4e7"]
 
 [ext_resource type="PackedScene" uid="uid://b6x85lit0stwv" path="res://Scenes/space_background.tscn" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://5x7etmqtmvk4" path="res://Scenes/player.tscn" id="1_52fb6"]
 [ext_resource type="Script" path="res://Scripts/World/planet_scene.gd" id="2_main"]
 [ext_resource type="PackedScene" uid="uid://ccpiadvr7h7sg" path="res://Scenes/home_planet.tscn" id="3_jv6wh"]
+[ext_resource type="PackedScene" path="res://Scenes/hud.tscn" id="4_hud"]
 
 [node name="Node2D" type="Node2D" unique_id=2084757155]
 script = ExtResource("2_main")
@@ -15,3 +16,5 @@ position = Vector2(246, 181)
 
 [node name="Player" parent="." unique_id=738117526 instance=ExtResource("1_52fb6")]
 position = Vector2(321, 183)
+
+[node name="HUD" parent="." instance=ExtResource("4_hud")]
