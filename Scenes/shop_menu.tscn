@@ -1,0 +1,311 @@
+[gd_scene format=3 uid="uid://b16ixd1bxl0kg"]
+
+[ext_resource type="Script" uid="uid://badx1kfbfpgd1" path="res://Scripts/shop_menu.gd" id="1_shop"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.04, 0.05, 0.14, 0.97)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.5, 0.9, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.1, 0.15, 0.3, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.45, 0.75, 0.8)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="ShopMenu" type="CanvasLayer" unique_id=1268869915]
+layer = 10
+visible = false
+script = ExtResource("1_shop")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=1912225543]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.65)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=98377507]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer" unique_id=436873635]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel" unique_id=906860431]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/Panel/VBox" unique_id=1435194279]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.3, 1)
+theme_override_font_sizes/font_size = 11
+text = "UPGRADES"
+horizontal_alignment = 1
+
+[node name="GoldLabel" type="Label" parent="CenterContainer/Panel/VBox" unique_id=1117066588]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+theme_override_font_sizes/font_size = 9
+text = "GOLD: 0"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/Panel/VBox" unique_id=1097839051]
+layout_mode = 2
+
+[node name="SpeedRow" type="HBoxContainer" parent="CenterContainer/Panel/VBox" unique_id=279544967]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/VBox/SpeedRow" unique_id=1346647642]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 9
+text = "SPEED"
+vertical_alignment = 1
+
+[node name="T1" type="Button" parent="CenterContainer/Panel/VBox/SpeedRow" unique_id=512992607]
+custom_minimum_size = Vector2(76, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
+text = "T1
+150g"
+
+[node name="T2" type="Button" parent="CenterContainer/Panel/VBox/SpeedRow" unique_id=1624093878]
+custom_minimum_size = Vector2(76, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
+text = "T2
+300g"
+
+[node name="T3" type="Button" parent="CenterContainer/Panel/VBox/SpeedRow" unique_id=652187823]
+custom_minimum_size = Vector2(76, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
+text = "T3
+600g"
+
+[node name="FuelRow" type="HBoxContainer" parent="CenterContainer/Panel/VBox" unique_id=860819234]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/VBox/FuelRow" unique_id=1477962356]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 9
+text = "FUEL"
+vertical_alignment = 1
+
+[node name="T1" type="Button" parent="CenterContainer/Panel/VBox/FuelRow" unique_id=1473744898]
+custom_minimum_size = Vector2(76, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
+text = "T1
+100g"
+
+[node name="T2" type="Button" parent="CenterContainer/Panel/VBox/FuelRow" unique_id=715080864]
+custom_minimum_size = Vector2(76, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
+text = "T2
+200g"
+
+[node name="T3" type="Button" parent="CenterContainer/Panel/VBox/FuelRow" unique_id=985515962]
+custom_minimum_size = Vector2(76, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
+text = "T3
+400g"
+
+[node name="CargoRow" type="HBoxContainer" parent="CenterContainer/Panel/VBox" unique_id=489796963]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/VBox/CargoRow" unique_id=381379131]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 9
+text = "CARGO"
+vertical_alignment = 1
+
+[node name="T1" type="Button" parent="CenterContainer/Panel/VBox/CargoRow" unique_id=888167479]
+custom_minimum_size = Vector2(76, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
+text = "T1
+120g"
+
+[node name="T2" type="Button" parent="CenterContainer/Panel/VBox/CargoRow" unique_id=2117202523]
+custom_minimum_size = Vector2(76, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
+text = "T2
+240g"
+
+[node name="T3" type="Button" parent="CenterContainer/Panel/VBox/CargoRow" unique_id=755681696]
+custom_minimum_size = Vector2(76, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
+text = "T3
+480g"
+
+[node name="RadarRow" type="HBoxContainer" parent="CenterContainer/Panel/VBox" unique_id=424480967]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/VBox/RadarRow" unique_id=621278779]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 9
+text = "RADAR"
+vertical_alignment = 1
+
+[node name="T1" type="Button" parent="CenterContainer/Panel/VBox/RadarRow" unique_id=1952442024]
+custom_minimum_size = Vector2(76, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
+text = "T1
+80g"
+
+[node name="T2" type="Button" parent="CenterContainer/Panel/VBox/RadarRow" unique_id=496613808]
+custom_minimum_size = Vector2(76, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
+text = "T2
+160g"
+
+[node name="T3" type="Button" parent="CenterContainer/Panel/VBox/RadarRow" unique_id=1673005025]
+custom_minimum_size = Vector2(76, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
+text = "T3
+320g"
+
+[node name="ScannerRow" type="HBoxContainer" parent="CenterContainer/Panel/VBox" unique_id=2013779773]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/VBox/ScannerRow" unique_id=865066838]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 9
+text = "SCANNER"
+vertical_alignment = 1
+
+[node name="T1" type="Button" parent="CenterContainer/Panel/VBox/ScannerRow" unique_id=2062607646]
+custom_minimum_size = Vector2(76, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
+text = "T1
+200g"
+
+[node name="T2" type="Button" parent="CenterContainer/Panel/VBox/ScannerRow" unique_id=1198123946]
+custom_minimum_size = Vector2(76, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
+text = "T2
+400g"
+
+[node name="T3" type="Button" parent="CenterContainer/Panel/VBox/ScannerRow" unique_id=868634343]
+custom_minimum_size = Vector2(76, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
+text = "T3
+800g"
+
+[node name="HintLabel" type="Label" parent="CenterContainer/Panel/VBox" unique_id=787659693]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 0.9)
+theme_override_font_sizes/font_size = 8
+text = "[P] close"
+horizontal_alignment = 1
