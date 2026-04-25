@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ccpiadvr7h7sg"]
+
+[ext_resource type="Script" uid="uid://bsa6kevpi005" path="res://Scripts/home_planet.gd" id="1_42tce"]
+[ext_resource type="Texture2D" uid="uid://cgac7yegg4gj3" path="res://Assets/Art/home_planet.png" id="1_iojku"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_42tce"]
+radius = 25.0
+
+[node name="HomePlanet" type="Area2D" unique_id=1875822341]
+script = ExtResource("1_42tce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1860887612]
+shape = SubResource("CircleShape2D_42tce")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=479798577]
+texture = ExtResource("1_iojku")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

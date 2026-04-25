@@ -45,6 +45,10 @@ folder_colors={
 "res://Scripts/": "purple"
 }
 
+[global_group]
+
+player="Used to track Player"
+
 [input]
 
 rotate_clockwise={
