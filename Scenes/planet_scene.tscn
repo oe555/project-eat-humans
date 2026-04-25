@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://Scripts/World/planet_scene.gd" id="1_planet_scene"]
+[ext_resource type="Texture2D" uid="uid://ds8d5kt258ric" path="res://Assets/Art/placeholderspaceship.png" id="2_placeholder"]
+
+[node name="PlanetScene" type="Node2D"]
+script = ExtResource("1_planet_scene")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 653.0
+offset_bottom = 368.0
+color = Color(0.019, 0.06894999, 0.1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(384, 192)
+texture = ExtResource("2_placeholder")

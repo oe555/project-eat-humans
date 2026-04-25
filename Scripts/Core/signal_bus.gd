@@ -1,7 +1,15 @@
 extends Node
 
-@warning_ignore("unused_signal")
-
 # This is a Singleton (Autoload) script that acts as a central hub for all signals in the game.
 
+@warning_ignore("unused_signal")
 signal example_signal(value: int)
+
+@warning_ignore("unused_signal")
+signal world_generation_requested(rect: Rect2, count: int, parent: Node)
+@warning_ignore("unused_signal")
+signal planet_spawned(planet: Node2D, data: Resource)
+@warning_ignore("unused_signal")
+signal world_generated(planets: Array)
+@warning_ignore("unused_signal")
+signal planets_cleared
