@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://ujr45jajx4e7"]
 
+[ext_resource type="PackedScene" uid="uid://b6x85lit0stwv" path="res://Scenes/space_background.tscn" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://5x7etmqtmvk4" path="res://Scenes/player.tscn" id="1_52fb6"]
 
 [node name="Node2D" type="Node2D" unique_id=2084757155]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=77942042]
-offset_right = 653.0
-offset_bottom = 368.0
-color = Color(0.019, 0.06894999, 0.1, 1)
+[node name="SpaceBackground" parent="." unique_id=601757368 instance=ExtResource("1_6l7je")]
 
 [node name="Player" parent="." unique_id=738117526 instance=ExtResource("1_52fb6")]
-position = Vector2(436, 203)
+position = Vector2(321, 183)
