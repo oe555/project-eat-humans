@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var rotation_speed: float = PI
-@export var thrust_speed: float = 100.0
+@export var thrust_speed: float = 150.0
 
 
 func _physics_process(delta: float) -> void:
