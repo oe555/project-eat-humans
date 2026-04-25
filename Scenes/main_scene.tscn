@@ -3,11 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://b6x85lit0stwv" path="res://Scenes/space_background.tscn" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://5x7etmqtmvk4" path="res://Scenes/player.tscn" id="1_52fb6"]
 [ext_resource type="Script" path="res://Scripts/World/planet_scene.gd" id="2_main"]
+[ext_resource type="PackedScene" uid="uid://ccpiadvr7h7sg" path="res://Scenes/home_planet.tscn" id="3_jv6wh"]
 
 [node name="Node2D" type="Node2D" unique_id=2084757155]
 script = ExtResource("2_main")
 
 [node name="SpaceBackground" parent="." unique_id=601757368 instance=ExtResource("1_6l7je")]
+
+[node name="HomePlanet" parent="." unique_id=1875822341 instance=ExtResource("3_jv6wh")]
+position = Vector2(246, 181)
 
 [node name="Player" parent="." unique_id=738117526 instance=ExtResource("1_52fb6")]
 position = Vector2(321, 183)

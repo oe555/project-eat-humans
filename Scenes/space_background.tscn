@@ -14,7 +14,7 @@ position = Vector2(320, 180)
 texture = ExtResource("1_4ghvd")
 
 [node name="Stars" type="Parallax2D" parent="." unique_id=1826549694]
-scroll_scale = Vector2(2, 2)
+scroll_scale = Vector2(0.3, 0.3)
 repeat_size = Vector2(640, 360)
 
 [node name="Sprite2D" type="Sprite2D" parent="Stars" unique_id=518600185]
@@ -22,7 +22,7 @@ position = Vector2(320, 180)
 texture = ExtResource("2_xvnf2")
 
 [node name="BackgroundPlanets" type="Parallax2D" parent="." unique_id=1599246690]
-scroll_scale = Vector2(3, 3)
+scroll_scale = Vector2(0.7, 0.7)
 repeat_size = Vector2(640, 360)
 
 [node name="Sprite2D" type="Sprite2D" parent="BackgroundPlanets" unique_id=1646014236]
