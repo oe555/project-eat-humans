@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://b0qer8nhtbmce"]
+[gd_scene format=3 uid="uid://ujr45jajx4e7"]
 
-[ext_resource type="Texture2D" uid="uid://ds8d5kt258ric" path="res://Assets/Art/placeholderspaceship.png" id="1_52fb6"]
+[ext_resource type="PackedScene" uid="uid://5x7etmqtmvk4" path="res://Scenes/player.tscn" id="1_52fb6"]
 
 [node name="Node2D" type="Node2D" unique_id=2084757155]
 
@@ -9,6 +9,5 @@ offset_right = 653.0
 offset_bottom = 368.0
 color = Color(0.019, 0.06894999, 0.1, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=686939283]
-position = Vector2(384, 192)
-texture = ExtResource("1_52fb6")
+[node name="Player" parent="." unique_id=738117526 instance=ExtResource("1_52fb6")]
+position = Vector2(436, 203)

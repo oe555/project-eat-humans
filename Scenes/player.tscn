@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://5x7etmqtmvk4"]
+
+[ext_resource type="Script" uid="uid://by00mxo5iri7g" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://ds8d5kt258ric" path="res://Assets/Art/placeholderspaceship.png" id="1_v0iea"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
+size = Vector2(32, 32)
+
+[node name="Player" type="CharacterBody2D" unique_id=738117526]
+script = ExtResource("1_cvnsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=383184569]
+shape = SubResource("RectangleShape2D_cvnsp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1762180537]
+texture = ExtResource("1_v0iea")
