@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var thrust_max: float = 150.0
 @export var thrust_decay: float = 10.0
 
+@onready var speed_lines: Node = $SpeedLines
+
 
 func _physics_process(delta: float) -> void:
 
@@ -23,6 +25,13 @@ func _physics_process(delta: float) -> void:
 	## Make sure ship doesn't exceed its maximum speed
 	velocity = velocity.limit_length(thrust_max)
 
-	print(velocity.length())
+	if speed_lines and speed_lines.has_method("update_motion"):
+		speed_lines.update_motion(
+			velocity,
+			thrust_max,
+			rotation_direction,
+			Input.is_action_pressed("accelerate"),
+			Input.is_action_pressed("break")
+		)
 
 	move_and_slide()
