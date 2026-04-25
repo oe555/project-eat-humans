@@ -10,6 +10,9 @@ extends CharacterBody2D
 var fuel_consumption_rate: float = 0.01 * thrust_acceleration
 var fuel: float
 
+@export var human_capacity: int = 10
+var humans: int = 0
+
 
 func _ready() -> void:
 	fuel = fuel_max

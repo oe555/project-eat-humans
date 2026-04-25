@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var speed_label: Label = $Gauges/SpeedGauge/SpeedLabel
 @onready var fuel_bar: ProgressBar = $Gauges/FuelGauge/FuelBar
 @onready var fuel_label: Label = $Gauges/FuelGauge/FuelLabel
+@onready var humans_label: Label = $Gauges/HumansLabel
 
 var player: CharacterBody2D
 
@@ -20,3 +21,5 @@ func _process(_delta: float) -> void:
 
 		fuel_bar.value = (player.fuel / player.fuel_max) * 100.0
 		fuel_label.text = "FUEL %.1f" % player.fuel
+
+		humans_label.text = "HUMANS %d/%d" % [player.humans, player.human_capacity]
