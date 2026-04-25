@@ -1,6 +1,6 @@
 extends Node2D
 
-const PLANET_COUNT: int = 10
+const PLANET_COUNT: int = 20
 
 func _ready() -> void:
 	var view_rect := Rect2(Vector2.ZERO, get_viewport_rect().size)
