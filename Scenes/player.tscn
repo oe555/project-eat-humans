@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://by00mxo5iri7g" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://by8h63qhbq34k" path="res://Assets/Art/spaceship.png" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://c0a0gllvjw8x2" path="res://Scripts/Effects/speed_lines.gd" id="3_speedlines"]
+[ext_resource type="SpriteFrames" uid="uid://b6aqblfuxxag5" path="res://Assets/Art/Animations/thrusters.tres" id="4_vgqql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(32, 32)
@@ -12,10 +14,42 @@ script = ExtResource("1_cvnsp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=383184569]
 shape = SubResource("RectangleShape2D_cvnsp")
 
+[node name="SpeedLines" type="Node2D" parent="." unique_id=426826736]
+script = ExtResource("3_speedlines")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1762180537]
-position = Vector2(0, -2)
 texture = ExtResource("2_cvnsp")
 flip_v = true
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=1042666587]
 position_smoothing_enabled = true
+
+[node name="Thrusters" type="Node2D" parent="." unique_id=900571112]
+
+[node name="MainThruster" type="AnimatedSprite2D" parent="Thrusters" unique_id=131180106]
+visible = false
+position = Vector2(-1, -22)
+sprite_frames = ExtResource("4_vgqql")
+animation = &"main"
+
+[node name="LeftThruster" type="AnimatedSprite2D" parent="Thrusters" unique_id=930436149]
+visible = false
+position = Vector2(14, -10)
+rotation = -0.7853982
+sprite_frames = ExtResource("4_vgqql")
+animation = &"left"
+frame_progress = 0.9269449
+
+[node name="RightThruster" type="AnimatedSprite2D" parent="Thrusters" unique_id=1631285433]
+visible = false
+position = Vector2(-14, -11.000001)
+rotation = 0.7853982
+sprite_frames = ExtResource("4_vgqql")
+animation = &"right"
+frame_progress = 0.28849432
+
+[node name="BrakeThruster" type="AnimatedSprite2D" parent="Thrusters" unique_id=1035738982]
+visible = false
+position = Vector2(-1, 21)
+sprite_frames = ExtResource("4_vgqql")
+animation = &"brake"
