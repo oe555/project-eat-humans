@@ -12,15 +12,19 @@ const TIER_COUNT := 3
 @onready var _gold_label: Label = %GoldLabel
 
 var _tier_buttons: Array = []  # [cat_idx][0..2] -> Button
+var _paused_by_menu: bool = false
 
 
 func _ready() -> void:
+	# Keep the home planet menu interactive while it pauses gameplay.
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 	SignalBus.gold_changed.connect(_on_gold_changed)
 	SignalBus.upgrade_purchased.connect(_on_upgrade_purchased)
 	SignalBus.home_planet_reached.connect(_on_home_planet_reached)
 
 	var close_btn = get_node("CenterContainer/Panel/VBox/CloseButton")
-	close_btn.pressed.connect(func() -> void: visible = false)
+	close_btn.pressed.connect(_close_home_planet_menu)
 
 	var rows: Array = [%SpeedRow, %FuelRow, %CargoRow, %RadarRow, %ScannerRow]
 	for cat_idx in range(CATEGORY_COUNT):
@@ -33,6 +37,9 @@ func _ready() -> void:
 			buttons.append(btn)
 		_tier_buttons.append(buttons)
 
+
+func _exit_tree() -> void:
+	_unpause_game()
 
 
 # --------------- State refresh ---------------
@@ -79,5 +86,27 @@ func _on_upgrade_purchased(_category: int, _tier: int) -> void:
 
 
 func _on_home_planet_reached() -> void:
+	_open_home_planet_menu()
+
+
+func _open_home_planet_menu() -> void:
 	visible = true
 	_refresh()
+	_pause_game()
+
+
+func _close_home_planet_menu() -> void:
+	visible = false
+	_unpause_game()
+
+
+func _pause_game() -> void:
+	if not get_tree().paused:
+		get_tree().paused = true
+		_paused_by_menu = true
+
+
+func _unpause_game() -> void:
+	if _paused_by_menu:
+		get_tree().paused = false
+		_paused_by_menu = false
