@@ -7,11 +7,16 @@ const MAX_RADIUS: float = 32.0
 const PLACEMENT_BUFFER: float = 12.0
 const MAX_PLACEMENT_ATTEMPTS: int = 30
 
+# These are used to move planets away from the home planet
+const HOME_PLANET_X: float = 246.0
+const HOME_PLANET_Y: float = 181.0
+
 var planets: Array[PlanetData] = []
-var _spawned: Array[Node] = []
+var _spawned: Array[Planet] = []
 
 func _ready() -> void:
 	SignalBus.world_generation_requested.connect(_on_world_generation_requested)
+	SignalBus.home_planet_reached.connect(_on_home_planet_reached)
 
 func _on_world_generation_requested(rect: Rect2, count: int, parent: Node) -> void:
 	generate_planets(rect, count, parent)
@@ -92,3 +97,11 @@ func _overlaps(pos: Vector2, planet_type: int) -> bool:
 		if existing.position.distance_to(pos) < min_dist:
 			return true
 	return false
+
+func _on_home_planet_reached() -> void:
+	move_planets_away_from_home_planet()
+
+func move_planets_away_from_home_planet() -> void:
+	for planet in _spawned:
+		var direction := (planet.position - Vector2(HOME_PLANET_X, HOME_PLANET_Y)).normalized()
+		planet.position += direction * 100.0
