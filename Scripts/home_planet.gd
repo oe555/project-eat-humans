@@ -9,4 +9,4 @@ func _on_body_entered(body: Node2D) -> void:
 		if delivered > 0:
 			body.humans = 0
 			GameState.humans_on_home_planet += delivered
-			GameState.human_burndown_rate += delivered * 0.1
+			#GameState.human_burndown_rate += delivered * 0.1
