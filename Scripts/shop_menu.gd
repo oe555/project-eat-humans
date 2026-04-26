@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 # =========================================================
-# ShopMenu — toggled with P key
+# ShopMenu — opened on home planet arrival, closed with button
 # Displays upgrade categories with tier buttons.
 # Unpurchasable items are greyed out.
 # =========================================================
@@ -17,6 +17,10 @@ var _tier_buttons: Array = []  # [cat_idx][0..2] -> Button
 func _ready() -> void:
 	SignalBus.gold_changed.connect(_on_gold_changed)
 	SignalBus.upgrade_purchased.connect(_on_upgrade_purchased)
+	SignalBus.home_planet_reached.connect(_on_home_planet_reached)
+
+	var close_btn = get_node("CenterContainer/Panel/VBox/CloseButton")
+	close_btn.pressed.connect(func() -> void: visible = false)
 
 	var rows: Array = [%SpeedRow, %FuelRow, %CargoRow, %RadarRow, %ScannerRow]
 	for cat_idx in range(CATEGORY_COUNT):
@@ -29,12 +33,6 @@ func _ready() -> void:
 			buttons.append(btn)
 		_tier_buttons.append(buttons)
 
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("open_shop"):
-		visible = !visible
-		if visible:
-			_refresh()
 
 
 # --------------- State refresh ---------------
@@ -78,3 +76,8 @@ func _on_gold_changed(_value: int) -> void:
 func _on_upgrade_purchased(_category: int, _tier: int) -> void:
 	if visible:
 		_refresh()
+
+
+func _on_home_planet_reached() -> void:
+	visible = true
+	_refresh()
