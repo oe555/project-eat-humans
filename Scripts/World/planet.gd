@@ -79,3 +79,7 @@ func drop_items(impact_speed: float) -> void:
 		item.drift_velocity = Vector2.from_angle(angle) * randf_range(30.0, 80.0)
 
 		get_tree().current_scene.add_child(item)
+
+func reset_harvest_state() -> void:
+	data.harvested = false
+	_sprite.modulate = Color.WHITE

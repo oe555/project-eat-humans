@@ -99,7 +99,13 @@ func _overlaps(pos: Vector2, planet_type: int) -> bool:
 	return false
 
 func _on_home_planet_reached() -> void:
+	reset_planet_harvest_states()
 	move_planets_away_from_home_planet()
+
+func reset_planet_harvest_states() -> void:
+	for planet in _spawned:
+		if is_instance_valid(planet):
+			planet.reset_harvest_state()
 
 func move_planets_away_from_home_planet() -> void:
 	for i in _spawned.size():
