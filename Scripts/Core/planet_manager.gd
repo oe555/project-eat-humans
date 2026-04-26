@@ -56,11 +56,11 @@ func _try_place_one(rect: Rect2) -> PlanetData:
 		var planet_type := Randomizer.rnd.randi_range(1, 3)
 		var radius := 0.0
 		if planet_type == 1:
-			radius = 40.0
+			radius = 20.0
 		if planet_type == 2:
-			radius = 35.0
+			radius = 17.5
 		if planet_type == 3:
-			radius = 50.0
+			radius = 25.0
 		var pos := Vector2(
 			Randomizer.rnd.randf_range(rect.position.x + radius, rect.end.x - radius),
 			Randomizer.rnd.randf_range(rect.position.y + radius, rect.end.y - radius)
@@ -75,19 +75,19 @@ func _try_place_one(rect: Rect2) -> PlanetData:
 func _overlaps(pos: Vector2, planet_type: int) -> bool:
 	var radius := 0.0
 	if planet_type == 1:
-		radius = 40.0
+		radius = 20.0
 	if planet_type == 2:
-		radius = 35.0
+		radius = 17.5
 	if planet_type == 3:
-		radius = 50.0
+		radius = 25.0
 	for existing in planets:
 		var existing_radius := 0.0
 		if existing.planet_type == 1:
-			existing_radius = 40.0
+			existing_radius = 20.0
 		if existing.planet_type == 2:
-			existing_radius = 35.0
+			existing_radius = 17.5
 		if existing.planet_type == 3:
-			existing_radius = 50.0
+			existing_radius = 25.0
 		var min_dist := existing_radius + radius + PLACEMENT_BUFFER
 		if existing.position.distance_to(pos) < min_dist:
 			return true
