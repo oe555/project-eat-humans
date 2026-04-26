@@ -7,6 +7,9 @@
 [ext_resource type="AudioStream" path="res://Assets/Sound/main_engine_start.wav" id="5_engine_start"]
 [ext_resource type="AudioStream" path="res://Assets/Sound/main_engine_firing.wav" id="6_engine_firing"]
 [ext_resource type="AudioStream" path="res://Assets/Sound/main_engine_stop.wav" id="7_engine_stop"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/aux_engine_start.wav" id="8_aux_start"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/aux_engine_firing.wav" id="9_aux_firing"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/aux_engine_stop.wav" id="10_aux_stop"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vgqql"]
 
@@ -68,4 +71,16 @@ bus = &"SFX"
 
 [node name="EngineStop" type="AudioStreamPlayer" parent="EngineSFX"]
 stream = ExtResource("7_engine_stop")
+bus = &"SFX"
+
+[node name="AuxStart" type="AudioStreamPlayer" parent="EngineSFX"]
+stream = ExtResource("8_aux_start")
+bus = &"SFX"
+
+[node name="AuxFiring" type="AudioStreamPlayer" parent="EngineSFX"]
+stream = ExtResource("9_aux_firing")
+bus = &"SFX"
+
+[node name="AuxStop" type="AudioStreamPlayer" parent="EngineSFX"]
+stream = ExtResource("10_aux_stop")
 bus = &"SFX"

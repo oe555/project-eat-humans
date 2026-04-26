@@ -22,6 +22,11 @@ func _ready() -> void:
 	firing_stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
 	firing_stream.loop_end = firing_stream.data.size()
 
+	aux_start.finished.connect(_on_aux_start_finished)
+	var aux_firing_stream := aux_firing.stream as AudioStreamWAV
+	aux_firing_stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	aux_firing_stream.loop_end = aux_firing_stream.data.size()
+
 
 func _on_upgrade_purchased(category: int, tier: int) -> void:
 	var value := ShopManager.get_upgrade_value(category, tier)
@@ -42,8 +47,12 @@ func _on_upgrade_purchased(category: int, tier: int) -> void:
 @onready var engine_start: AudioStreamPlayer = $EngineSFX/EngineStart
 @onready var engine_firing: AudioStreamPlayer = $EngineSFX/EngineFiring
 @onready var engine_stop: AudioStreamPlayer = $EngineSFX/EngineStop
+@onready var aux_start: AudioStreamPlayer = $EngineSFX/AuxStart
+@onready var aux_firing: AudioStreamPlayer = $EngineSFX/AuxFiring
+@onready var aux_stop: AudioStreamPlayer = $EngineSFX/AuxStop
 
 var _engine_active: bool = false
+var _aux_active: bool = false
 
 
 func _physics_process(delta: float) -> void:
@@ -69,6 +78,8 @@ func _physics_process(delta: float) -> void:
 	_update_thruster(left_thruster, is_rotating_clockwise)
 	_update_thruster(right_thruster, is_rotating_counterclockwise)
 	_update_engine_sfx(is_accelerating)
+	var is_aux_active := is_braking or is_rotating_clockwise or is_rotating_counterclockwise
+	_update_aux_sfx(is_aux_active)
 	fuel = maxf(fuel, 0.0)
 
 	## Make sure ship doesn't exceed its maximum speed
@@ -118,9 +129,27 @@ func _update_engine_sfx(is_accelerating: bool) -> void:
 
 
 
+func _update_aux_sfx(is_active: bool) -> void:
+	if is_active and not _aux_active:
+		_aux_active = true
+		aux_stop.stop()
+		aux_firing.stop()
+		aux_start.play()
+	elif not is_active and _aux_active:
+		_aux_active = false
+		aux_start.stop()
+		aux_firing.stop()
+		aux_stop.play()
+
+
 func _on_engine_start_finished() -> void:
 	if _engine_active:
 		engine_firing.play()
+
+
+func _on_aux_start_finished() -> void:
+	if _aux_active:
+		aux_firing.play()
 
 
 func _update_thruster(thruster: AnimatedSprite2D, is_active: bool) -> void:
