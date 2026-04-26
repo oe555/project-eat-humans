@@ -82,10 +82,12 @@ func _handle_planet_collisions() -> void:
 		var collider := collision.get_collider()
 		if collider is Planet:
 			var planet := collider as Planet
-			var impact_velocity := collision.get_travel() + collision.get_remainder()
+			var impact_speed := velocity.length()
 			# Apply impulse to planet proportional to ship speed
 			var impulse := velocity * (1.0 / planet.mass) * 50.0
 			planet.apply_central_impulse(impulse)
+			# Drop items based on impact speed
+			planet.drop_items(impact_speed)
 			# Decelerate ship — lose speed proportional to planet mass ratio
 			var speed_loss := clampf(planet.mass / (planet.mass + 10.0), 0.3, 0.8)
 			velocity *= (1.0 - speed_loss)
