@@ -37,7 +37,6 @@ func _on_upgrade_purchased(category: int, tier: int) -> void:
 
 
 func _physics_process(delta: float) -> void:
-
 	## Calculate spin of the ship
 	var rotation_direction = Input.get_axis("rotate_counterclockwise", "rotate_clockwise")
 	var is_accelerating = Input.is_action_pressed("accelerate")

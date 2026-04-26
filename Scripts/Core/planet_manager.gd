@@ -30,6 +30,12 @@ func generate_planets(rect: Rect2, count: int, parent: Node) -> void:
 			continue
 		planets.append(data)
 		var node := PLANET_SCENE.instantiate() as Planet
+		if data.planet_type == 1:
+			node.get_child(0).texture = preload("res://Assets/Art/Planets/planet_1.png")
+		if data.planet_type == 2:
+			node.get_child(0).texture = preload("res://Assets/Art/Planets/planet_2.png")
+		if data.planet_type == 3:
+			node.get_child(0).texture = preload("res://Assets/Art/Planets/planet_3.png")
 		actual_parent.add_child(node)
 		node.setup(data)
 		_spawned.append(node)
@@ -47,21 +53,42 @@ func clear_planets() -> void:
 
 func _try_place_one(rect: Rect2) -> PlanetData:
 	for attempt in MAX_PLACEMENT_ATTEMPTS:
-		var radius := Randomizer.rnd.randf_range(MIN_RADIUS, MAX_RADIUS)
+		var planet_type := Randomizer.rnd.randi_range(1, 3)
+		var radius := 0.0
+		if planet_type == 1:
+			radius = 40.0
+		if planet_type == 2:
+			radius = 35.0
+		if planet_type == 3:
+			radius = 50.0
 		var pos := Vector2(
 			Randomizer.rnd.randf_range(rect.position.x + radius, rect.end.x - radius),
 			Randomizer.rnd.randf_range(rect.position.y + radius, rect.end.y - radius)
 		)
-		if not _overlaps(pos, radius):
+		if not _overlaps(pos, planet_type):
 			var data := PlanetData.new()
 			data.position = pos
-			data.radius = radius
+			data.planet_type = planet_type
 			return data
 	return null
 
-func _overlaps(pos: Vector2, radius: float) -> bool:
+func _overlaps(pos: Vector2, planet_type: int) -> bool:
+	var radius := 0.0
+	if planet_type == 1:
+		radius = 40.0
+	if planet_type == 2:
+		radius = 35.0
+	if planet_type == 3:
+		radius = 50.0
 	for existing in planets:
-		var min_dist := existing.radius + radius + PLACEMENT_BUFFER
+		var existing_radius := 0.0
+		if existing.planet_type == 1:
+			existing_radius = 40.0
+		if existing.planet_type == 2:
+			existing_radius = 35.0
+		if existing.planet_type == 3:
+			existing_radius = 50.0
+		var min_dist := existing_radius + radius + PLACEMENT_BUFFER
 		if existing.position.distance_to(pos) < min_dist:
 			return true
 	return false
