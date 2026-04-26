@@ -13,7 +13,7 @@ const HUMAN_TEXTURES: Array[Texture2D] = [
 
 var data: PlanetData
 
-@onready var _sprite: Sprite2D = $Sprite2D
+#@onready var _sprite: Sprite2D = $Sprite2D
 @onready var _collision: CollisionShape2D = $CollisionShape2D
 
 func setup(d: PlanetData) -> void:
