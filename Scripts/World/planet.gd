@@ -13,7 +13,7 @@ const HUMAN_TEXTURES: Array[Texture2D] = [
 
 var data: PlanetData
 
-#@onready var _sprite: Sprite2D = $Sprite2D
+@onready var _sprite: Sprite2D = $Sprite2D
 @onready var _collision: CollisionShape2D = $CollisionShape2D
 
 func setup(d: PlanetData) -> void:
@@ -41,9 +41,15 @@ func setup(d: PlanetData) -> void:
 	# 	_collision.shape = shape
 
 func drop_items(impact_speed: float) -> void:
+	if data.harvested:
+		return
+
 	var drop_count := int(impact_speed / 25.0)
 	if drop_count <= 0:
 		return
+
+	data.harvested = true
+	_sprite.modulate = Color(0.55, 0.55, 0.55, 1.0)
 
 	var gold_chance: float = 0.0
 	match data.planet_type:
