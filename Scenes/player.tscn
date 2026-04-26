@@ -4,6 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://by8h63qhbq34k" path="res://Assets/Art/spaceship.png" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://c0a0gllvjw8x2" path="res://Scripts/Effects/speed_lines.gd" id="3_speedlines"]
 [ext_resource type="SpriteFrames" uid="uid://b6aqblfuxxag5" path="res://Assets/Art/Animations/thrusters.tres" id="4_vgqql"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/main_engine_start.wav" id="5_engine_start"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/main_engine_firing.wav" id="6_engine_firing"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/main_engine_stop.wav" id="7_engine_stop"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/aux_engine_start.wav" id="8_aux_start"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/aux_engine_firing.wav" id="9_aux_firing"]
+[ext_resource type="AudioStream" path="res://Assets/Sound/aux_engine_stop.wav" id="10_aux_stop"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vgqql"]
 
@@ -52,3 +58,29 @@ visible = false
 position = Vector2(-1, 21)
 sprite_frames = ExtResource("4_vgqql")
 animation = &"brake"
+
+[node name="EngineSFX" type="Node" parent="."]
+
+[node name="EngineStart" type="AudioStreamPlayer" parent="EngineSFX"]
+stream = ExtResource("5_engine_start")
+bus = &"SFX"
+
+[node name="EngineFiring" type="AudioStreamPlayer" parent="EngineSFX"]
+stream = ExtResource("6_engine_firing")
+bus = &"SFX"
+
+[node name="EngineStop" type="AudioStreamPlayer" parent="EngineSFX"]
+stream = ExtResource("7_engine_stop")
+bus = &"SFX"
+
+[node name="AuxStart" type="AudioStreamPlayer" parent="EngineSFX"]
+stream = ExtResource("8_aux_start")
+bus = &"SFX"
+
+[node name="AuxFiring" type="AudioStreamPlayer" parent="EngineSFX"]
+stream = ExtResource("9_aux_firing")
+bus = &"SFX"
+
+[node name="AuxStop" type="AudioStreamPlayer" parent="EngineSFX"]
+stream = ExtResource("10_aux_stop")
+bus = &"SFX"
