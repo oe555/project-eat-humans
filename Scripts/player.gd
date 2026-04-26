@@ -17,6 +17,10 @@ var humans: int = 0
 func _ready() -> void:
 	fuel = fuel_max
 	SignalBus.upgrade_purchased.connect(_on_upgrade_purchased)
+	engine_start.finished.connect(_on_engine_start_finished)
+	var firing_stream := engine_firing.stream as AudioStreamWAV
+	firing_stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	firing_stream.loop_end = firing_stream.data.size()
 
 
 func _on_upgrade_purchased(category: int, tier: int) -> void:
@@ -34,6 +38,12 @@ func _on_upgrade_purchased(category: int, tier: int) -> void:
 @onready var brake_thruster: AnimatedSprite2D = $Thrusters/BrakeThruster
 @onready var left_thruster: AnimatedSprite2D = $Thrusters/LeftThruster
 @onready var right_thruster: AnimatedSprite2D = $Thrusters/RightThruster
+
+@onready var engine_start: AudioStreamPlayer = $EngineSFX/EngineStart
+@onready var engine_firing: AudioStreamPlayer = $EngineSFX/EngineFiring
+@onready var engine_stop: AudioStreamPlayer = $EngineSFX/EngineStop
+
+var _engine_active: bool = false
 
 
 func _physics_process(delta: float) -> void:
@@ -58,6 +68,7 @@ func _physics_process(delta: float) -> void:
 	_update_thruster(brake_thruster, is_braking)
 	_update_thruster(left_thruster, is_rotating_clockwise)
 	_update_thruster(right_thruster, is_rotating_counterclockwise)
+	_update_engine_sfx(is_accelerating)
 	fuel = maxf(fuel, 0.0)
 
 	## Make sure ship doesn't exceed its maximum speed
@@ -91,6 +102,25 @@ func _handle_planet_collisions() -> void:
 			# Decelerate ship — lose speed proportional to planet mass ratio
 			var speed_loss := clampf(planet.mass / (planet.mass + 10.0), 0.3, 0.8)
 			velocity *= (1.0 - speed_loss)
+
+
+func _update_engine_sfx(is_accelerating: bool) -> void:
+	if is_accelerating and not _engine_active:
+		_engine_active = true
+		engine_stop.stop()
+		engine_firing.stop()
+		engine_start.play()
+	elif not is_accelerating and _engine_active:
+		_engine_active = false
+		engine_start.stop()
+		engine_firing.stop()
+		engine_stop.play()
+
+
+
+func _on_engine_start_finished() -> void:
+	if _engine_active:
+		engine_firing.play()
 
 
 func _update_thruster(thruster: AnimatedSprite2D, is_active: bool) -> void:
