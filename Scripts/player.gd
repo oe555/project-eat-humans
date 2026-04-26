@@ -27,6 +27,11 @@ func _ready() -> void:
 	aux_firing_stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
 	aux_firing_stream.loop_end = aux_firing_stream.data.size()
 
+	SignalBus.home_planet_reached.connect(_on_home_planet_reached)
+
+
+func _on_home_planet_reached() -> void:
+	fuel = fuel_max
 
 func _on_upgrade_purchased(category: int, tier: int) -> void:
 	var value := ShopManager.get_upgrade_value(category, tier)
@@ -126,7 +131,6 @@ func _update_engine_sfx(is_accelerating: bool) -> void:
 		engine_start.stop()
 		engine_firing.stop()
 		engine_stop.play()
-
 
 
 func _update_aux_sfx(is_active: bool) -> void:

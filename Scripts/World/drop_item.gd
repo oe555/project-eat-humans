@@ -1,7 +1,7 @@
 class_name DropItem
 extends Area2D
 
-enum Type { GOLD, HUMAN }
+enum Type {GOLD, HUMAN}
 
 var item_type: Type
 var drift_velocity: Vector2
