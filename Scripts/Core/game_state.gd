@@ -1,7 +1,7 @@
 extends Node
 
 var days_passed: int = 0
-var gold: int = 0
+var gold: int = 100
 var humans_on_home_planet: int = 0
 var human_burndown_rate: float = 0.0
 
