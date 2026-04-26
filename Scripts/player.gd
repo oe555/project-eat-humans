@@ -16,6 +16,18 @@ var humans: int = 0
 
 func _ready() -> void:
 	fuel = fuel_max
+	SignalBus.upgrade_purchased.connect(_on_upgrade_purchased)
+
+
+func _on_upgrade_purchased(category: int, tier: int) -> void:
+	var value := ShopManager.get_upgrade_value(category, tier)
+	match category:
+		Enums.UpgradeCategory.SHIP_SPEED:
+			thrust_max += value
+		Enums.UpgradeCategory.FUEL_CAPACITY:
+			fuel_max += value
+		Enums.UpgradeCategory.CARGO_CAPACITY:
+			human_capacity += value
 
 
 func _physics_process(delta: float) -> void:

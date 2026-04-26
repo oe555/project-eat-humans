@@ -95,7 +95,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
 text = "T1
-150g"
+100g"
 
 [node name="T2" type="Button" parent="CenterContainer/Panel/VBox/SpeedRow" unique_id=1624093878]
 custom_minimum_size = Vector2(76, 28)
@@ -106,7 +106,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
 text = "T2
-300g"
+200g"
 
 [node name="T3" type="Button" parent="CenterContainer/Panel/VBox/SpeedRow" unique_id=652187823]
 custom_minimum_size = Vector2(76, 28)
@@ -117,7 +117,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
 text = "T3
-600g"
+400g"
 
 [node name="FuelRow" type="HBoxContainer" parent="CenterContainer/Panel/VBox" unique_id=860819234]
 unique_name_in_owner = true
@@ -141,7 +141,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
 text = "T1
-100g"
+50g"
 
 [node name="T2" type="Button" parent="CenterContainer/Panel/VBox/FuelRow" unique_id=715080864]
 custom_minimum_size = Vector2(76, 28)
@@ -152,7 +152,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
 text = "T2
-200g"
+100g"
 
 [node name="T3" type="Button" parent="CenterContainer/Panel/VBox/FuelRow" unique_id=985515962]
 custom_minimum_size = Vector2(76, 28)
@@ -163,7 +163,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
 text = "T3
-400g"
+200g"
 
 [node name="CargoRow" type="HBoxContainer" parent="CenterContainer/Panel/VBox" unique_id=489796963]
 unique_name_in_owner = true
@@ -187,7 +187,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
 text = "T1
-120g"
+80g"
 
 [node name="T2" type="Button" parent="CenterContainer/Panel/VBox/CargoRow" unique_id=2117202523]
 custom_minimum_size = Vector2(76, 28)
@@ -198,7 +198,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
 text = "T2
-240g"
+160g"
 
 [node name="T3" type="Button" parent="CenterContainer/Panel/VBox/CargoRow" unique_id=755681696]
 custom_minimum_size = Vector2(76, 28)
@@ -209,7 +209,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
 text = "T3
-480g"
+320g"
 
 [node name="RadarRow" type="HBoxContainer" parent="CenterContainer/Panel/VBox" unique_id=424480967]
 unique_name_in_owner = true
@@ -233,7 +233,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
 text = "T1
-80g"
+150g"
 
 [node name="T2" type="Button" parent="CenterContainer/Panel/VBox/RadarRow" unique_id=496613808]
 custom_minimum_size = Vector2(76, 28)
@@ -244,7 +244,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
 text = "T2
-160g"
+300g"
 
 [node name="T3" type="Button" parent="CenterContainer/Panel/VBox/RadarRow" unique_id=1673005025]
 custom_minimum_size = Vector2(76, 28)
@@ -255,7 +255,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
 text = "T3
-320g"
+600g"
 
 [node name="ScannerRow" type="HBoxContainer" parent="CenterContainer/Panel/VBox" unique_id=2013779773]
 unique_name_in_owner = true
