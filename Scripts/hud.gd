@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var fuel_label: Label = $Gauges/FuelGauge/FuelLabel
 @onready var humans_label: Label = $Gauges/HumansLabel
 @onready var gold_label: Label = $Gauges/GoldLabel
+@onready var day_label: Label = $DayLabel
 
 var player: CharacterBody2D
 
@@ -25,3 +26,4 @@ func _process(_delta: float) -> void:
 
 		humans_label.text = "HUMANS %d/%d" % [player.humans, player.human_capacity]
 		gold_label.text = "GOLD %d" % GameState.gold
+		day_label.text = "DAY %d" % GameState.days_passed
