@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ccpiadvr7h7sg" path="res://Scenes/home_planet.tscn" id="3_jv6wh"]
 [ext_resource type="PackedScene" path="res://Scenes/hud.tscn" id="4_hud"]
 [ext_resource type="PackedScene" uid="uid://b16ixd1bxl0kg" path="res://Scenes/shop_menu.tscn" id="5_shop"]
+[ext_resource type="AudioStream" uid="uid://olnut038g7v2" path="res://Assets/Music/music.ogg" id="7_maf8m"]
 
 [node name="Node2D" type="Node2D" unique_id=2084757155]
 script = ExtResource("2_main")
@@ -21,3 +22,9 @@ position = Vector2(321, 183)
 [node name="HUD" parent="." unique_id=443003347 instance=ExtResource("4_hud")]
 
 [node name="ShopMenu" parent="." unique_id=1271325778 instance=ExtResource("5_shop")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=47620118]
+position = Vector2(246, 184)
+stream = ExtResource("7_maf8m")
+autoplay = true
+max_distance = 669.0
