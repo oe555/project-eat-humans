@@ -33,10 +33,12 @@ func setup(d: PlanetData) -> void:
 	gravity_scale = 0.0
 	linear_damp = 1.5
 
-	if _collision and _collision.shape is CircleShape2D:
-		var shape := (_collision.shape as CircleShape2D).duplicate() as CircleShape2D
-		shape.radius = radius
-		_collision.shape = shape
+	(_collision.shape as CircleShape2D).radius = radius
+
+	# if _collision and _collision.shape is CircleShape2D:
+	# 	var shape := (_collision.shape as CircleShape2D).duplicate() as CircleShape2D
+	# 	shape.radius = radius
+	# 	_collision.shape = shape
 
 func drop_items(impact_speed: float) -> void:
 	var drop_count := int(impact_speed / 25.0)

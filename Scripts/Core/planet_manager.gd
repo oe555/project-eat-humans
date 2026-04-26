@@ -102,6 +102,7 @@ func _on_home_planet_reached() -> void:
 	move_planets_away_from_home_planet()
 
 func move_planets_away_from_home_planet() -> void:
-	for planet in _spawned:
-		var direction := (planet.position - Vector2(HOME_PLANET_X, HOME_PLANET_Y)).normalized()
-		planet.position += direction * 100.0
+	for i in _spawned.size():
+		var direction := (_spawned[i].position - Vector2(HOME_PLANET_X, HOME_PLANET_Y)).normalized()
+		_spawned[i].position += direction * 100.0
+		planets[i].position += direction * 100.0
