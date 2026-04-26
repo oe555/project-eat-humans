@@ -6,7 +6,7 @@
 [ext_resource type="SpriteFrames" uid="uid://b6aqblfuxxag5" path="res://Assets/Art/Animations/thrusters.tres" id="4_vgqql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
-size = Vector2(32, 32)
+size = Vector2(16, 20)
 
 [node name="Player" type="CharacterBody2D" unique_id=738117526 groups=["player"]]
 script = ExtResource("1_cvnsp")

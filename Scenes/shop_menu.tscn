@@ -303,9 +303,10 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_btn")
 text = "T3
 800g"
 
-[node name="HintLabel" type="Label" parent="CenterContainer/Panel/VBox" unique_id=787659693]
+[node name="CloseButton" type="Button" parent="CenterContainer/Panel/VBox" unique_name_in_owner=true]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 0.9)
 theme_override_font_sizes/font_size = 8
-text = "[P] close"
-horizontal_alignment = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn")
+text = "CLOSE"

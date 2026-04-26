@@ -25,3 +25,5 @@ signal upgrade_purchased(category: int, tier: int)
 signal fuel_purchased(amount: int)
 @warning_ignore("unused_signal")
 signal purchase_failed(reason: String)
+@warning_ignore("unused_signal")
+signal home_planet_reached
